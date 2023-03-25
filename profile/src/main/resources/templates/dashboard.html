@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Student Profile Management System</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+<script type="text/javascript"
+	src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+
+<script src="js/dashboard.js"></script>
+
+<style>
+.circle-tile {
+	margin-bottom: 15px;
+	text-align: center;
+}
+
+.circle-tile-heading {
+	border: 3px solid rgba(255, 255, 255, 0.3);
+	border-radius: 100%;
+	color: #FFFFFF;
+	height: 80px;
+	margin: 0 auto -40px;
+	position: relative;
+	transition: all 0.3s ease-in-out 0s;
+	width: 80px;
+}
+
+.circle-tile-heading .fa {
+	line-height: 80px;
+}
+
+.circle-tile-content {
+	padding-top: 50px;
+}
+
+.circle-tile-number {
+	font-size: 26px;
+	font-weight: 700;
+	line-height: 1;
+	padding: 5px 0 15px;
+}
+
+.circle-tile-description {
+	text-transform: uppercase;
+}
+
+.circle-tile-footer {
+	background-color: rgba(0, 0, 0, 0.1);
+	color: rgba(255, 255, 255, 0.5);
+	display: block;
+	padding: 5px;
+	transition: all 0.3s ease-in-out 0s;
+}
+
+.circle-tile-footer:hover {
+	background-color: rgba(0, 0, 0, 0.2);
+	color: rgba(255, 255, 255, 0.5);
+	text-decoration: none;
+}
+
+.circle-tile-heading.dark-blue:hover {
+	background-color: #2E4154;
+}
+
+.circle-tile-heading.green:hover {
+	background-color: #138F77;
+}
+
+.circle-tile-heading.orange:hover {
+	background-color: #DA8C10;
+}
+
+.circle-tile-heading.blue:hover {
+	background-color: #2473A6;
+}
+
+.circle-tile-heading.red:hover {
+	background-color: #CF4435;
+}
+
+.circle-tile-heading.purple:hover {
+	background-color: #7F3D9B;
+}
+
+.tile-img {
+	text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.9);
+}
+
+.dark-blue {
+	background-color: #34495E;
+}
+
+.green {
+	background-color: #16A085;
+}
+
+.blue {
+	background-color: #2980B9;
+}
+
+.orange {
+	background-color: #F39C12;
+}
+
+.red {
+	background-color: #E74C3C;
+}
+
+.purple {
+	background-color: #8E44AD;
+}
+
+.dark-gray {
+	background-color: #7F8C8D;
+}
+
+.gray {
+	background-color: #95A5A6;
+}
+
+.light-gray {
+	background-color: #BDC3C7;
+}
+
+.yellow {
+	background-color: #F1C40F;
+}
+
+.text-dark-blue {
+	color: #34495E;
+}
+
+.text-green {
+	color: #16A085;
+}
+
+.text-blue {
+	color: #2980B9;
+}
+
+.text-orange {
+	color: #F39C12;
+}
+
+.text-red {
+	color: #E74C3C;
+}
+
+.text-purple {
+	color: #8E44AD;
+}
+
+.text-faded {
+	color: rgba(255, 255, 255, 0.7);
+}
+</style>
+
+<script>
+	
+</script>
+</head>
+<body>
+	<nav class="navbar navbar-default"
+		style="border-bottom: 3px solid orange;">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/dashboard"
+					style="font-family: Fantasy; font-size: 25px;"><span
+					style="color: green;">Student</span> <span style="color: red;">Profile</span>
+					<span style="color: orange;">Management</span></a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li style="margin-left: 40px; margin-right: -20px !important;"><a
+					href="#"><span class="label label-default"><span
+							class="glyphicon glyphicon-menu-hamburger"></span> <b>System:</b>
+							<span id="sysId"></span> </span></a></li>
+				<li style="margin-right: -20px !important;"><a href="#"><span
+						class="label label-default"><span
+							class="glyphicon glyphicon-dashboard"></span> <b>DB:</b> <span
+							id="dbId"></span></span></a></li>
+				<li style="margin-right: -20px !important;"><a href="#"><span
+						class="label label-default"><span
+							class="glyphicon glyphicon-hdd"></span> <b>Disk Space:</b> <span
+							id="diskSpaceId"></span></span></a></li>
+				<li style="margin-right: -20px !important;"><a href="#"><span
+						class="label label-default"><span
+							class="glyphicon glyphicon-qrcode"></span> <b>Processors:</b> <span
+							id="diskProcessorId"></span></span></a></li>
+				<li style="margin-right: -20px !important;"><a href="#"><span
+						class="label label-default"><span
+							class="glyphicon glyphicon-dashboard"></span> <b>Up Time:</b> <span
+							id="uptimeId"></span></span></a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#"><button type="button"
+							class="btn btn-sm btn-warning" id="refreshId">
+							<span class="glyphicon glyphicon-refresh"></span> Refresh Data
+						</button></a></li>
+			</ul>
+		</div>
+	</nav>
+
+
+
+
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-9 col-md-offset-3">
+
+
+				<div class="col-lg-2 col-sm-6">
+					<div class="circle-tile ">
+						<a href="#"><div class="circle-tile-heading green">
+								<i class="fa fa-users fa-fw fa-3x"></i><span
+									class="glyphicon glyphicon-ok-sign" style="font-size: 30px;"></span>
+							</div></a>
+						<div class="circle-tile-content green">
+							<div class="circle-tile-description text-faded">200(Status)</div>
+							<div class="circle-tile-number text-faded "><span id="200Id"></span></div>
+							<a class="circle-tile-footer" href="#">More Info<i
+								class="fa fa-chevron-circle-right"></i></a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-2 col-sm-6">
+					<div class="circle-tile ">
+						<a href="#"><div class="circle-tile-heading dark-blue">
+								<i class="fa fa-users fa-fw fa-3x"></i><span
+									class="glyphicon glyphicon-question-sign"
+									style="font-size: 30px;"></span>
+							</div></a>
+						<div class="circle-tile-content dark-blue">
+							<div class="circle-tile-description text-faded">400(Status)
+							</div>
+							<div class="circle-tile-number text-faded "><span id="400Id"></span></div>
+							<a class="circle-tile-footer" href="#">More Info<i
+								class="fa fa-chevron-circle-right"></i></a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-2 col-sm-6">
+					<div class="circle-tile ">
+						<a href="#"><div class="circle-tile-heading purple">
+								<i class="fa fa-users fa-fw fa-3x"></i><span
+									class="glyphicon glyphicon-remove-sign"
+									style="font-size: 30px;"></span>
+							</div></a>
+						<div class="circle-tile-content purple">
+							<div class="circle-tile-description text-faded">404(Status)
+							</div>
+							<div class="circle-tile-number text-faded "><span id="404Id"></span></div>
+							<a class="circle-tile-footer" href="#">More Info<i
+								class="fa fa-chevron-circle-right"></i></a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-2 col-sm-6">
+					<div class="circle-tile ">
+						<a href="#"><div class="circle-tile-heading red">
+								<i class="fa fa-users fa-fw fa-3x"></i><span
+									class="glyphicon glyphicon-ban-circle" style="font-size: 30px;"></span>
+							</div></a>
+						<div class="circle-tile-content red">
+							<div class="circle-tile-description text-faded">500(Status)
+							</div>
+							<div class="circle-tile-number text-faded "><span id="500Id"></span></div>
+							<a class="circle-tile-footer" href="#">More Info<i
+								class="fa fa-chevron-circle-right"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container" style="margin-top: 40px;">
+		<div class="row">
+			<div class="col-md-9 col-md-offset-3">
+				<a href="/graph" class="btn btn-info" style="width: 280px;"><span class="glyphicon glyphicon-stats"></span> Graph View</a>
+				<a href="history" class="btn btn-info" style="width: 280px;"><span class="glyphicon glyphicon-tree-deciduous"></span> Trace History</a>
+			</div>
+		</div>
+	</div>
+	<div class="container" style="margin-top: 10px;">
+		<div class="row">
+			<div class="col-md-9 col-md-offset-3">
+				<a href="/" class="btn btn-warning" style="width: 560px;"><span class="glyphicon glyphicon-eye-open"></span> Student Details</a>
+				
+			</div>
+		</div>
+	</div>
+</body>
+</html>
